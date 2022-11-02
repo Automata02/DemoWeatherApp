@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C09D1B229124D220046B6F8 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D1B129124D220046B6F8 /* OnboardingViewController.swift */; };
+		6C09D1B429124DEF0046B6F8 /* NewUserCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D1B329124DEF0046B6F8 /* NewUserCheck.swift */; };
 		CD0500BC28C9E44100FB06F4 /* SunStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0500BB28C9E44100FB06F4 /* SunStateModel.swift */; };
 		CD0500BF28C9F54B00FB06F4 /* SunriseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0500BE28C9F54B00FB06F4 /* SunriseView.swift */; };
 		CD0500C128C9F57300FB06F4 /* SunriseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0500C028C9F57300FB06F4 /* SunriseView.xib */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C09D1B129124D220046B6F8 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		6C09D1B329124DEF0046B6F8 /* NewUserCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserCheck.swift; sourceTree = "<group>"; };
 		CD0500BB28C9E44100FB06F4 /* SunStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunStateModel.swift; sourceTree = "<group>"; };
 		CD0500BE28C9F54B00FB06F4 /* SunriseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseView.swift; sourceTree = "<group>"; };
 		CD0500C028C9F57300FB06F4 /* SunriseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SunriseView.xib; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				CDEFDAC728C8924500826ABF /* TimeAndDate.swift */,
 				CD1C724A28CE3B0100C93D7F /* ViewStyling.swift */,
 				CD06463028C4F62C001C3C48 /* SymbolCodeSwitches.swift */,
+				6C09D1B329124DEF0046B6F8 /* NewUserCheck.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 		CDB9986A28C0965200AC6BB1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6C09D1B129124D220046B6F8 /* OnboardingViewController.swift */,
 				CDB9986E28C09B7D00AC6BB1 /* MainViewController.swift */,
 				CDF8467F28CA228400EB28E8 /* SettingsViewController.swift */,
 			);
@@ -308,6 +314,7 @@
 			files = (
 				CDB9987228C09E4A00AC6BB1 /* WeatherHandler.swift in Sources */,
 				CD1C724B28CE3B0100C93D7F /* ViewStyling.swift in Sources */,
+				6C09D1B429124DEF0046B6F8 /* NewUserCheck.swift in Sources */,
 				CDF8468028CA228400EB28E8 /* SettingsViewController.swift in Sources */,
 				CDEFDABE28C7614000826ABF /* CollectionView.swift in Sources */,
 				CD06463528C5D6B3001C3C48 /* WindDirection.swift in Sources */,
@@ -325,6 +332,7 @@
 				CDEFDAC128C7709C00826ABF /* MyCollectionViewCell.swift in Sources */,
 				CDB9985728C095F400AC6BB1 /* SceneDelegate.swift in Sources */,
 				CD1C725028CE432000C93D7F /* NotificationHelper.swift in Sources */,
+				6C09D1B229124D220046B6F8 /* OnboardingViewController.swift in Sources */,
 				CD0500BF28C9F54B00FB06F4 /* SunriseView.swift in Sources */,
 				CDF8468228CA28DF00EB28E8 /* Theme.swift in Sources */,
 				CD06463D28C62344001C3C48 /* WeatherHandlerDelegateExtension.swift in Sources */,
@@ -481,7 +489,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -513,7 +521,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

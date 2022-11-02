@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s75-5j-Rvx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -252,13 +251,13 @@
                                                 <rect key="frame" x="0.0" y="68" width="354" height="216"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Notification time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5x-Bn-hum">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="216"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="216"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU3-LD-pXa">
-                                                        <rect key="frame" x="34" y="0.0" width="320" height="216"/>
+                                                        <rect key="frame" x="13" y="0.0" width="341" height="216"/>
                                                         <date key="date" timeIntervalSinceReferenceDate="684536400.22242403">
                                                             <!--2022-09-10 21:00:00 +0000-->
                                                         </date>
@@ -363,6 +362,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIZ-P9-k4K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2050.7246376811595" y="630.80357142857144"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="ULK-BD-XRX">
+            <objects>
+                <viewController storyboardIdentifier="onboarding" id="1Zx-wB-ajS" customClass="OnboardingViewController" customModule="DemoWeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uy5-58-Jk9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSh-x0-g7G">
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <color key="backgroundColor" name="Pinkish-background"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hXq-hq-szr"/>
+                        <color key="backgroundColor" name="Pinkish-background"/>
+                        <constraints>
+                            <constraint firstItem="VSh-x0-g7G" firstAttribute="top" secondItem="hXq-hq-szr" secondAttribute="top" id="6rJ-y3-ggY"/>
+                            <constraint firstItem="VSh-x0-g7G" firstAttribute="leading" secondItem="hXq-hq-szr" secondAttribute="leading" id="nDn-8Z-UFy"/>
+                            <constraint firstItem="hXq-hq-szr" firstAttribute="trailing" secondItem="VSh-x0-g7G" secondAttribute="trailing" id="qXC-ia-g51"/>
+                            <constraint firstItem="hXq-hq-szr" firstAttribute="bottom" secondItem="VSh-x0-g7G" secondAttribute="bottom" id="xbH-6c-a3M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="holderView" destination="VSh-x0-g7G" id="pCd-NO-z7M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1p6-q4-tLy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="-1487"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fpn-Jh-Pc5">

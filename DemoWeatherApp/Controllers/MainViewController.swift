@@ -34,12 +34,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var userLocation = CLLocationCoordinate2D()
     let instituteLocation = CLLocationCoordinate2D(latitude: 59.94263, longitude: 10.72056)
     
+    var didLoadMap: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherMap.mapType = .satellite
         weatherMap.centerCoordinate = instituteLocation
         weatherMap.setRegion(MKCoordinateRegion(center: instituteLocation, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)), animated: true)
-//        loadMap()
         self.dismissKeyboard()
         weatherMap.delegate = self
         weatherHandler.delegate = self
@@ -48,12 +49,29 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         setupButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        loadMap()
+    //MARK: Method to show onboardingVC
+    override func viewDidLayoutSubviews() {
+        if NewUserCheck.shared.isNewUser() {
+            let onboardingVC = storyboard?.instantiateViewController(withIdentifier: "onboarding") as! OnboardingViewController
+            onboardingVC.modalPresentationStyle = .fullScreen
+            present(onboardingVC, animated: true)
+        } else {
+            if !didLoadMap {
+                loadMap()
+                didLoadMap = true
+            }
+        }
     }
     
     func fetchWeather(lat: Double, lon: Double) {
         weatherHandler.fetchWeather(latitude: lat, longitude: lon)
+    }
+    func loadMap() {
+        weatherMap.removeAnnotations(weatherMap.annotations)
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction func returnOnKeyboardTapped(_ sender: Any) {
@@ -65,14 +83,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         loadMap()
         searchField.text = ""
         hideKeyboard()
-    }
-    
-    func loadMap() {
-        weatherMap.removeAnnotations(weatherMap.annotations)
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
     }
     
     func setupButton() {
@@ -126,7 +136,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         initPin.coordinate = here
         weatherMap.addAnnotation(initPin)
         weatherMap.centerCoordinate = CLLocationCoordinate2D(latitude: initPin.coordinate.latitude + 0.002, longitude: initPin.coordinate.longitude)
-        weatherMap.selectAnnotation(initPin, animated: false)
+        weatherMap.selectAnnotation(initPin, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -138,7 +148,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             annotationView?.annotation = annotation
         }
         annotationView?.set(image: (UIImage(systemName: "circle.dashed") ?? UIImage(systemName: "circle.dashed"))!, with: .white)
-        annotationView?.displayPriority = .required
         annotationView?.frame = CGRect(x: 0, y: 0, width: 52, height: 50)
         annotationView?.displayPriority = .required
         return annotationView

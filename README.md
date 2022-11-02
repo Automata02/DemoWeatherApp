@@ -28,14 +28,13 @@ For the app to work normally it needs the following:
 - Permission to send notifications
 
 ## TODO:
-- Add onboarding
 - Widget with WidgetKit
 - Background data refresh
 - Forecast Graph w/ Swift Charts
 - Fix notification data not updating
 - Fix the bug where app sets multiple notifications
 - Improve sorting algorithm for the json data
-- Localization for Norway, Sweden, Finland, Estonia, Latvia, Denmark(?)
+- Localisation for Norway, Sweden, Finland, Estonia, Latvia, Denmark(?)
 
 ## Screenshots
 <img src="/Readme/WeatherApp001.png" align="left"
