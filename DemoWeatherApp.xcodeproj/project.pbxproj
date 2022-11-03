@@ -487,6 +487,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoWeatherApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
@@ -519,6 +520,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoWeatherApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To provide accurate weather prediction DemoWeatherApp needs to know your location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
