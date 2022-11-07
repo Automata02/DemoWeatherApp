@@ -49,6 +49,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         setupButton()
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+//            if manager.authorizationStatus == .authorizedWhenInUse {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                    self.locationManager.requestAlwaysAuthorization()
+//                }
+//            }
+//        }
+//    }
+    
     //MARK: Method to show onboardingVC
     override func viewDidLayoutSubviews() {
         if NewUserCheck.shared.isNewUser() {

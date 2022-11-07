@@ -4,7 +4,6 @@
 //
 //  Created by roberts.kursitis on 02/11/2022.
 //
-#warning("TODO: Update second view's button after location services are enabled.")
 
 import UIKit
 import CoreLocation
@@ -27,10 +26,15 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configure()
     }
+    
     
     private func configure() {
         let titles = [
@@ -43,8 +47,21 @@ class OnboardingViewController: UIViewController {
         scrollView.frame = holderView.bounds
         holderView.addSubview(scrollView)
         
+        //MARK: Gradient Layer settings
+        let gradientLayer = CAGradientLayer()
+        let pinkTone = #colorLiteral(red: 0.9607843137, green: 0.8352941176, blue: 0.8705882353, alpha: 1)
+        let blueTone = #colorLiteral(red: 0.137254902, green: 0.6666666667, blue: 0.8823529412, alpha: 1)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: 1000, height: 1000)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.1)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.type = .radial
+        gradientLayer.colors = [blueTone.cgColor, pinkTone.cgColor]
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.zPosition = -10
+        holderView.backgroundColor = .clear
+        
         for page in 0..<4 {
-            let pageView = UIView(frame: CGRect(x: CGFloat(page) * holderView.frame.size.width, y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
+            let pageView = UIView(frame: CGRect(x: 0, y: CGFloat(page) * holderView.frame.size.height, width: holderView.frame.size.width, height: holderView.frame.size.height))
             scrollView.addSubview(pageView)
             
             let obTitleLabel = UILabel()
@@ -67,7 +84,7 @@ class OnboardingViewController: UIViewController {
             
             obTextLabel.font = .systemFont(ofSize: 21, weight: .regular)
             obTextLabel.numberOfLines = 0
-            obTextLabel.lineBreakMode = .byClipping
+            obTextLabel.lineBreakMode = .byWordWrapping
             obTextLabel.textAlignment = .justified
             pageView.addSubview(obTextLabel)
 
@@ -82,17 +99,16 @@ class OnboardingViewController: UIViewController {
             case 0:
                 obImageView.image = UIImage(named: "NordicWeather")
                 obButton.setTitle("Continue", for: .normal)
-                obTextLabel.text = "To fully use Nordic Weather app we need to briefly set up a few things."
+                obTextLabel.text = "We are excited to provide you with weather forecast for your current location but before that we need to briefly set up a few things."
             case 1:
-                obImageView.image = UIImage(systemName: "mappin.and.ellipse")
+                obImageView.image = UIImage(named: "mapViewMockup")
                 obButton.setTitle("Set location permission", for: .normal)
-                obTextLabel.text = "We are excited to provide you with weather forecast for your current location. However to present accurate data we need to have Location Services enabled. The app does not store this nor any personal data outside of your iOS device."
+                obTextLabel.text = "To present accurate data we need to have Location Services enabled. The app does not store this nor any personal data outside of your iOS device."
                 config.image = UIImage(systemName: "location.fill")
                 config.baseBackgroundColor = .systemBlue
                 config.baseForegroundColor = .white
             case 2:
-                obImageView.image = UIImage(systemName: "mappin.and.ellipse")
-                obImageView.isHidden = true
+                obImageView.image = UIImage(named: "mapViewMockup2")
                 obButton.setTitle("Continue", for: .normal)
                 obTextLabel.text = "We're almost there!"
                 obTextLabel.textAlignment = .center
@@ -101,6 +117,7 @@ class OnboardingViewController: UIViewController {
                 config.baseForegroundColor = .white
             case 3:
                 obImageView.image = UIImage(systemName: "clock.badge")
+                obImageView.isHidden = true
                 obTextLabel.text = "All done, daily forecast notifications can be enabled within settings as well as Nordic Weather app's theme can be adjusted as from the settings."
                 obButton.setTitle("Continue", for: .normal)
             default:
@@ -114,31 +131,33 @@ class OnboardingViewController: UIViewController {
             
             //MARK: Constraints
             NSLayoutConstraint.activate([
-                obTitleLabel.heightAnchor.constraint(equalToConstant: 50),
                 obTitleLabel.centerXAnchor.constraint(equalTo: pageView.centerXAnchor),
-                obTitleLabel.centerYAnchor.constraint(equalTo: pageView.topAnchor, constant: 60),
+                obTitleLabel.centerYAnchor.constraint(equalTo: pageView.topAnchor, constant: 40),
                 
-                obImageView.widthAnchor.constraint(equalToConstant: pageView.frame.width - 60),
-                obImageView.heightAnchor.constraint(equalToConstant: pageView.frame.width - 60),
+                obImageView.widthAnchor.constraint(equalToConstant: pageView.frame.width - 70),
+                obImageView.heightAnchor.constraint(equalToConstant: pageView.frame.width - 70),
                 obImageView.centerXAnchor.constraint(equalTo: pageView.centerXAnchor),
-                obImageView.centerYAnchor.constraint(equalTo: obTitleLabel.bottomAnchor, constant: 180),
+                obImageView.centerYAnchor.constraint(equalTo: obTitleLabel.bottomAnchor, constant: 160),
                 
                 obTextLabel.widthAnchor.constraint(equalToConstant: pageView.frame.width - 60),
-                obTextLabel.topAnchor.constraint(equalTo: obImageView.bottomAnchor, constant: 20),
+                obTextLabel.topAnchor.constraint(equalTo: obImageView.bottomAnchor, constant: 10),
                 obTextLabel.centerXAnchor.constraint(equalTo: pageView.centerXAnchor),
                 
                 obButton.centerXAnchor.constraint(equalTo: pageView.centerXAnchor),
-                obButton.bottomAnchor.constraint(equalTo: pageView.bottomAnchor, constant: -30)
+                obButton.bottomAnchor.constraint(equalTo: pageView.bottomAnchor, constant: -20)
             ])
         }
-        scrollView.contentSize = CGSize(width: holderView.frame.size.width * 4, height: 0)
+        
+//        scrollView.contentSize = CGSize(width: holderView.frame.size.width * 4, height: 0)
+        scrollView.contentSize = CGSize(width: 0, height: holderView.frame.size.height * 4)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isScrollEnabled = false
     }
     
     func slidePage(button: UIButton) {
-        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
+//        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y: holderView.frame.size.height * CGFloat(button.tag)), animated: true)
     }
     
     @objc func didTapButton(_ button: UIButton) {

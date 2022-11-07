@@ -76,15 +76,15 @@
                                                     <constraint firstAttribute="width" secondItem="H3d-q7-DeA" secondAttribute="height" multiplier="1:1" id="uGx-6g-9XE"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sdd-Ai-vIt" customClass="WeatherNowView" customModule="DemoWeatherApp" customModuleProvider="target">
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdd-Ai-vIt" customClass="WeatherNowView" customModule="DemoWeatherApp" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="419" width="374" height="223.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFa-7J-ltQ" customClass="LaterTodayView" customModule="DemoWeatherApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFa-7J-ltQ" customClass="LaterTodayView" customModule="DemoWeatherApp" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="667.5" width="374" height="147"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSU-qR-K4u" customClass="CollectionView" customModule="DemoWeatherApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSU-qR-K4u" customClass="CollectionView" customModule="DemoWeatherApp" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="839.5" width="374" height="166"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -107,7 +107,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-Je-wD9" customClass="SunriseView" customModule="DemoWeatherApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-Je-wD9" customClass="SunriseView" customModule="DemoWeatherApp" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="1030.5" width="374" height="154.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
