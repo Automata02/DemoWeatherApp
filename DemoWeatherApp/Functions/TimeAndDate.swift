@@ -8,15 +8,17 @@
 import Foundation
 
 var dayz: [DayModel] = []
+var formatter: StringFormatter!
 
 func castDayToModel(data: Properties) -> [DayModel] {
+	formatter = StringFormatter()
     var dayArray: [DayModel] = []
     for day in filterOutDays(timeseries: data.timeseries){
         let weekday = timeStringToWeekday(timeString: day.time)
         if day.data.next6Hours != nil {
-            dayArray.append(DayModel(dayName: weekday, dayTemp: day.data.instant.details.airTemperature, dayWeatherEmoji: symbolCodeToEmoji(symbolCode: (day.data.next12Hours?.summary.symbol_code) ?? "")))
+			dayArray.append(DayModel(dayName: weekday, dayTemp: day.data.instant.details.airTemperature, dayWeatherEmoji: formatter.symbolCodeToEmoji(symbolCode: (day.data.next12Hours?.summary.symbol_code) ?? "")))
         } else {
-            dayArray.append(DayModel(dayName: weekday, dayTemp: 0, dayWeatherEmoji: symbolCodeToEmoji(symbolCode: (day.data.next12Hours?.summary.symbol_code) ?? "")))
+			dayArray.append(DayModel(dayName: weekday, dayTemp: 0, dayWeatherEmoji: formatter.symbolCodeToEmoji(symbolCode: (day.data.next12Hours?.summary.symbol_code) ?? "")))
         }
     }
     return dayArray

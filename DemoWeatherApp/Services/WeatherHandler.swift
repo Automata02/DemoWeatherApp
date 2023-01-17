@@ -25,10 +25,8 @@ struct WeatherHandler {
         performRequest(with: urlString)
         let sunUrlString = "\(sunURL)?lat=\(latitude)&lon=\(longitude)&date=\(today)&offset=+02:00"
         performSunriseRequest(with: sunUrlString)
-        
-        print("URL FOR WEATHER: \(urlString)")
-        print("URL FOR SUN:: \(sunUrlString)")
     }
+	
     func performRequest(with urlString: String) {
         guard let url = URL(string: urlString) else {return}
 
@@ -85,26 +83,4 @@ struct WeatherHandler {
             }
         } .resume()
     }
-    
-//    func performRequest(with urlString: String) {
-//        if let url = URL(string: urlString) {
-//            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//                do {
-//                    let decoder = JSONDecoder()
-//                    decoder.dateDecodingStrategy = .iso8601
-//
-//                    let weatherData = try decoder.decode(WeatherData.self, from: data!)
-//                    DispatchQueue.main.async {
-//                        dayz = castDayToModel(data: weatherData.properties)
-//                    }
-//                    self.delegate?.didFetchWeatherForecast(weatherData.properties.timeseries)
-//                } catch let error {
-//                    self.delegate?.didFailWithError(error: error)
-//                    return
-//                }
-//            }
-//            print(url)
-//            task.resume()
-//        }
-//    }
 }

@@ -54,10 +54,10 @@ extension MainViewController: UICollectionViewDataSource {
         if segmentedCollectionView.segmentSwitch.selectedSegmentIndex == 0 {
             let hour = weatherForecast[indexPath.row]
             let firstHour = weatherForecast[indexPath.first!]
-            cell.configure(time: timeStringToHour(timeString: hour.time), emoji: symbolCodeToEmoji(symbolCode: hour.data.next1Hours?.summary.symbol_code ?? ""), temp: hour.data.instant.details.airTemperature)
+			cell.configure(time: timeStringToHour(timeString: hour.time), emoji: formatter.symbolCodeToEmoji(symbolCode: hour.data.next1Hours?.summary.symbol_code ?? ""), temp: hour.data.instant.details.airTemperature)
             for _ in weatherForecast {
                 if hour.time == firstHour.time {
-                    cell.configure(time: "Now", emoji: symbolCodeToEmoji(symbolCode: hour.data.next1Hours?.summary.symbol_code ?? ""), temp: hour.data.instant.details.airTemperature)
+					cell.configure(time: "Now", emoji: formatter.symbolCodeToEmoji(symbolCode: hour.data.next1Hours?.summary.symbol_code ?? ""), temp: hour.data.instant.details.airTemperature)
                 }
             }
         } else {

@@ -35,6 +35,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     let instituteLocation = CLLocationCoordinate2D(latitude: 59.94263, longitude: 10.72056)
     
     var didLoadMap: Bool = false
+	
+	var formatter = StringFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()

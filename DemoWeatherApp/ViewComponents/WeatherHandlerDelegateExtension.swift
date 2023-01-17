@@ -29,10 +29,10 @@ extension MainViewController: WeatherHandlerDelegate {
         let twelveHourSymbol = weatherForecast[0].data.next12Hours?.summary.symbol_code ?? "no data"
         let ppt = weatherForecast[0].data.next1Hours?.details?.precipitationAmount ?? 0
         let temp = String(Int(now.airTemperature.rounded()))
-        let subtitle = symbolCodeToEmoji(symbolCode: oneHourSymbol) + temp
-        let caption = symbolCodeToString(symbolCode: oneHourSymbol)
-        let sixHourCaption = symbolCodeToString(symbolCode: sixHourSymbol)
-        let twelveHourCaption = symbolCodeToString(symbolCode: twelveHourSymbol)
+		let subtitle = formatter.symbolCodeToEmoji(symbolCode: oneHourSymbol) + temp
+		let caption = formatter.symbolCodeToString(symbolCode: oneHourSymbol)
+		let sixHourCaption = formatter.symbolCodeToString(symbolCode: sixHourSymbol)
+		let twelveHourCaption = formatter.symbolCodeToString(symbolCode: twelveHourSymbol)
 // MARK: Passing Data to collectionView
 //       Done in ViewSetupExtension ☹️
 // MARK: Placing userLocation Pin
@@ -48,7 +48,7 @@ extension MainViewController: WeatherHandlerDelegate {
                               mm: ppt,
                               clouds: now.cloudAreaFraction,
                               humid: now.relativeHumidity,
-                              direct: calculateWindDirection(direction: now.windFromDirection),
+							  direct: formatter.calculateWindDirection(direction: now.windFromDirection),
                               speed: now.windSpeed)
             setupLaterTodayView(cap: caption, cap6h: sixHourCaption, cap12h: twelveHourCaption)
 // MARK: Need to reload data here to fix an issue with Collectionview presenting itself before it has data to build with.
