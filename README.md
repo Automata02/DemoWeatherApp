@@ -1,4 +1,4 @@
-# DemoWeatherApp (Nordic Weather) - a simple weather app built for iOS
+# Nordic Weather - a simple weather app built for iOS
 
 <img src="/Readme/NordicWeather.png" align="left"
 width="200" hspace="10" vspace="10">
