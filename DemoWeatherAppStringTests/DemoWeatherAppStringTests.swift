@@ -21,6 +21,7 @@ final class DemoWeatherAppStringTests: XCTestCase {
         try super.tearDownWithError()
     }
 	
+	//MARK: Wind Direction Function Tests
 	func testWindDirection() throws {
 		let eastDegrees: Double = 90
 		let southWestDegrees: Double = 215.3
@@ -31,16 +32,53 @@ final class DemoWeatherAppStringTests: XCTestCase {
 		XCTAssertEqual(sut.calculateWindDirection(direction: northDegrees), "North", "Direction does not match!")
 	}
 	
-//	func testWindDirectionPerformance() {
+	func testWindDirectionPerformance() {
+		measure(
+			metrics: [XCTClockMetric()]
+		) {
+			let _ = sut.calculateWindDirection(direction: 351.1)
+		}
+	}
+	
+	//MARK: Symbol Code to Emoji Function Tests
+	func testSymbolCodeToEmoji() throws {
+		//given
+		let testString = "rainandthunder"
+		
+		//when
+		let input = sut.symbolCodeToEmoji(symbolCode: testString)
+		
+		//then
+		XCTAssertEqual(input, "⛈️", "Input emoji does not match the functions output.")
+	}
+	
+//	func testSymbolCodeToEmojiPerformance() {
 //		measure(
-//			metrics: [
-//				XCTClockMetric(),
-//				XCTCPUMetric(),
-//				XCTStorageMetric(),
-//				XCTMemoryMetric()
-//			]
+//			metrics: [XCTClockMetric()]
 //		) {
-//			let output = sut.calculateWindDirection(direction: 351.1)
+//			let _ = sut.symbolCodeToEmoji(symbolCode: "snow")
+//		}
+//	}
+	
+	//MARK: Symbol Colde to String Function Tests
+	
+	func testSymbolCodeToString() throws {
+		//given
+		let testString = "lightssleetshowersandthunder_day"
+		
+		//when
+		let input = sut.symbolCodeToString(symbolCode: testString)
+		
+		//then
+		XCTAssertEqual(input, "Light sleetshowers and thunder", "Input string does not match the functions output.")
+	}
+	
+//	func testSymbolCodeToStringPerformance() {
+//		measure(
+//			metrics: [XCTClockMetric()]
+//		) {
+//			let _ = sut.symbolCodeToString(symbolCode: "snowshowers_day")
+//			let _ = sut.symbolCodeToString(symbolCode: "default")
 //		}
 //	}
 }

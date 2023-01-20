@@ -30,7 +30,7 @@ class StringFormatter {
 		case "heavyrain", "heavyrainshower_day", "heavyrainshower_night", "heavysleet", "heavysleetshowers_day", "heavysleetshowers_night", "lightrain", "lightrainshowers_day", "lightrainshowers_night", "rain", "rainshowers_day", "rainshowers_night":
 			return "🌧"
 		case "heavyrainandthunder", "heavyrainshowersandthunder_day", "heavyrainshowersandthunder_night", "heavysleetandthunder", "heavysleetshowersandthunder_day", "heavysleetshowersandthunder_night", "lightrainandthunder", "lightrainshowersandthunder_day", "lightrainshowersandthunder_night", "rainandthunder", "rainshowersandthunder_day", "rainshowersandthunder_night", "lightssleetshowersandthunder_day", "lightssleetshowersandthunder_night", "Light sleetshowers and thunder":
-			return "⛈"
+			return "⛈️"
 		case "heavysnow", "heavysnowandthunder", "heavysnowshowers_day", "heavysnowshowers_night", "heavysnowshowersandthunder_day", "heavysnowshowersandthunder_night", "lightsleetandthunder", "lightsleetshowers_day", "lightsleetshowers_night", "lightsleet", "lightsnow", "lightsnowandthunder", "Light snow and thunder", "lightsnowshowers_day", "lightsnowshowersandthunder_day", "lightsnowshowersandthunder_night", "lightsnowshowers_night", "sleet", "sleetandthunder", "sleetshowers_day", "sleetshowersandthunder_day", "sleetshowersandthunder_night", "sleetshowers_night", "snow", "snowandthunder", "snowshowers_day", "snowshowers_night", "snowshowersandthunder_day", "snowshowersandthunder_night":
 			return "🌨"
 		default:
